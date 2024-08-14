@@ -44,7 +44,7 @@ def convert_panels(panels):
 
 def convert(dash):
     n_dash = dash["dashboard"]
-    n_dash["uid"] = n_dash["title"].lower().ljust(14, "0")
+    n_dash["uid"] = n_dash["title"].lower().replace(" ", "_").ljust(14, "0")
     n_dash["panels"] = convert_panels(dash["dashboard"]["panels"].copy())
     return n_dash
 
