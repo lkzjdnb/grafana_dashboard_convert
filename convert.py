@@ -52,5 +52,5 @@ for file in os.listdir("prometheus"):
     with open("prometheus/"+file) as f:
         dash = json.load(f)
         res = convert(dash)
-        with open("influx/"+file, "w") as out:
+        with open("influx/"+file+".j2", "w") as out:
             json.dump(res, out)
