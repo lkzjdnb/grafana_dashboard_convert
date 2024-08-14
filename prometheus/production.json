@@ -1,0 +1,813 @@
+{
+    "meta": {
+        "type": "db",
+        "canSave": false,
+        "canEdit": false,
+        "canAdmin": false,
+        "canStar": false,
+        "canDelete": false,
+        "slug": "production",
+        "url": "/d/fdrjcrk05o0zka/production",
+        "expires": "0001-01-01T00:00:00Z",
+        "created": "2024-07-12T14:06:32Z",
+        "updated": "2024-08-01T14:31:44Z",
+        "updatedBy": "admin",
+        "createdBy": "admin",
+        "version": 12,
+        "hasAcl": false,
+        "isFolder": false,
+        "folderId": 0,
+        "folderUid": "",
+        "folderTitle": "General",
+        "folderUrl": "",
+        "provisioned": false,
+        "provisionedExternalId": "",
+        "annotationsPermissions": {
+            "dashboard": {
+                "canAdd": false,
+                "canEdit": false,
+                "canDelete": false
+            },
+            "organization": {
+                "canAdd": false,
+                "canEdit": false,
+                "canDelete": false
+            }
+        }
+    },
+    "dashboard": {
+        "annotations": {
+            "list": [
+                {
+                    "builtIn": 1,
+                    "datasource": {
+                        "type": "grafana",
+                        "uid": "-- Grafana --"
+                    },
+                    "enable": true,
+                    "hide": true,
+                    "iconColor": "rgba(0, 211, 255, 1)",
+                    "name": "Annotations & Alerts",
+                    "type": "dashboard"
+                }
+            ]
+        },
+        "editable": true,
+        "fiscalYearStartMonth": 0,
+        "graphTooltip": 0,
+        "id": 7,
+        "links": [],
+        "panels": [
+            {
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "cdqjr2nsg7gn4c"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "palette-classic"
+                        },
+                        "custom": {
+                            "axisBorderShow": false,
+                            "axisCenteredZero": false,
+                            "axisColorMode": "text",
+                            "axisLabel": "",
+                            "axisPlacement": "auto",
+                            "barAlignment": 0,
+                            "drawStyle": "line",
+                            "fillOpacity": 0,
+                            "gradientMode": "none",
+                            "hideFrom": {
+                                "legend": false,
+                                "tooltip": false,
+                                "viz": false
+                            },
+                            "insertNulls": false,
+                            "lineInterpolation": "linear",
+                            "lineWidth": 1,
+                            "pointSize": 5,
+                            "scaleDistribution": {
+                                "type": "linear"
+                            },
+                            "showPoints": "auto",
+                            "spanNulls": false,
+                            "stacking": {
+                                "group": "A",
+                                "mode": "none"
+                            },
+                            "thresholdsStyle": {
+                                "mode": "off"
+                            }
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        },
+                        "unit": "watt"
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 8,
+                    "w": 12,
+                    "x": 0,
+                    "y": 0
+                },
+                "id": 4,
+                "options": {
+                    "legend": {
+                        "calcs": [],
+                        "displayMode": "list",
+                        "placement": "bottom",
+                        "showLegend": false
+                    },
+                    "tooltip": {
+                        "mode": "single",
+                        "sort": "none"
+                    }
+                },
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "cdqjr2nsg7gn4c"
+                        },
+                        "disableTextWrap": false,
+                        "editorMode": "builder",
+                        "expr": "Consumption_total_in_W",
+                        "fullMetaSearch": false,
+                        "includeNullMetadata": true,
+                        "instant": false,
+                        "legendFormat": "__auto",
+                        "range": true,
+                        "refId": "A",
+                        "useBackend": false
+                    }
+                ],
+                "title": "Watt Consumption",
+                "type": "timeseries"
+            },
+            {
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "cdqjr2nsg7gn4c"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "palette-classic"
+                        },
+                        "custom": {
+                            "axisBorderShow": false,
+                            "axisCenteredZero": false,
+                            "axisColorMode": "text",
+                            "axisLabel": "",
+                            "axisPlacement": "auto",
+                            "fillOpacity": 80,
+                            "gradientMode": "none",
+                            "hideFrom": {
+                                "legend": false,
+                                "tooltip": false,
+                                "viz": false
+                            },
+                            "lineWidth": 1,
+                            "scaleDistribution": {
+                                "type": "linear"
+                            },
+                            "thresholdsStyle": {
+                                "mode": "off"
+                            }
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        },
+                        "unit": "watth"
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 8,
+                    "w": 12,
+                    "x": 12,
+                    "y": 0
+                },
+                "id": 6,
+                "options": {
+                    "barRadius": 0,
+                    "barWidth": 0.97,
+                    "fullHighlight": false,
+                    "groupWidth": 0.7,
+                    "legend": {
+                        "calcs": [],
+                        "displayMode": "list",
+                        "placement": "bottom",
+                        "showLegend": true
+                    },
+                    "orientation": "auto",
+                    "showValue": "auto",
+                    "stacking": "none",
+                    "tooltip": {
+                        "mode": "single",
+                        "sort": "none"
+                    },
+                    "xTickLabelRotation": 0,
+                    "xTickLabelSpacing": 0
+                },
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "cdqjr2nsg7gn4c"
+                        },
+                        "disableTextWrap": false,
+                        "editorMode": "builder",
+                        "expr": "Consumption_total_in_W",
+                        "fullMetaSearch": false,
+                        "includeNullMetadata": true,
+                        "instant": false,
+                        "legendFormat": "__auto",
+                        "range": true,
+                        "refId": "A",
+                        "useBackend": false
+                    }
+                ],
+                "title": "Energy Consumption /h",
+                "transformations": [
+                    {
+                        "id": "formatTime",
+                        "options": {
+                            "outputFormat": "YYYY-MM-DD-HH",
+                            "timeField": "Time",
+                            "useTimezone": true
+                        }
+                    },
+                    {
+                        "id": "groupBy",
+                        "options": {
+                            "fields": {
+                                "Time": {
+                                    "aggregations": [],
+                                    "operation": "groupby"
+                                },
+                                "{__name__=\"Consumption_total_in_W\", exported_job=\"electrolyzer-meter\", instance=\"141.72.13.23:9091\", job=\"pushgateway\"}": {
+                                    "aggregations": [
+                                        "max"
+                                    ],
+                                    "operation": "aggregate"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "type": "barchart"
+            },
+            {
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "cdqjr2nsg7gn4c"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "palette-classic"
+                        },
+                        "custom": {
+                            "axisBorderShow": false,
+                            "axisCenteredZero": false,
+                            "axisColorMode": "text",
+                            "axisLabel": "",
+                            "axisPlacement": "auto",
+                            "fillOpacity": 80,
+                            "gradientMode": "none",
+                            "hideFrom": {
+                                "legend": false,
+                                "tooltip": false,
+                                "viz": false
+                            },
+                            "lineWidth": 1,
+                            "scaleDistribution": {
+                                "type": "linear"
+                            },
+                            "thresholdsStyle": {
+                                "mode": "off"
+                            }
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        },
+                        "unit": "litre"
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 8,
+                    "w": 12,
+                    "x": 0,
+                    "y": 8
+                },
+                "id": 5,
+                "options": {
+                    "barRadius": 0,
+                    "barWidth": 0.97,
+                    "fullHighlight": false,
+                    "groupWidth": 0.7,
+                    "legend": {
+                        "calcs": [],
+                        "displayMode": "list",
+                        "placement": "bottom",
+                        "showLegend": false
+                    },
+                    "orientation": "auto",
+                    "showValue": "auto",
+                    "stacking": "none",
+                    "tooltip": {
+                        "mode": "single",
+                        "sort": "none"
+                    },
+                    "xTickLabelRotation": -45,
+                    "xTickLabelSpacing": 0
+                },
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "cdqjr2nsg7gn4c"
+                        },
+                        "disableTextWrap": false,
+                        "editorMode": "builder",
+                        "expr": "Stack_H2_Flow_NL_hour_{job=\"pushgateway\"}",
+                        "fullMetaSearch": false,
+                        "includeNullMetadata": true,
+                        "instant": false,
+                        "legendFormat": "__auto",
+                        "range": true,
+                        "refId": "A",
+                        "useBackend": false
+                    }
+                ],
+                "title": "Daily H2 production",
+                "transformations": [
+                    {
+                        "id": "formatTime",
+                        "options": {
+                            "outputFormat": "YYYY-MM-DD",
+                            "timeField": "Time",
+                            "timezone": "browser",
+                            "useTimezone": true
+                        }
+                    },
+                    {
+                        "id": "groupBy",
+                        "options": {
+                            "fields": {
+                                "Time": {
+                                    "aggregations": [],
+                                    "operation": "groupby"
+                                },
+                                "{__name__=\"Stack_H2_Flow_NL_hour_\", exported_job=\"electrolyzer\", instance=\"141.72.13.23:9091\", job=\"pushgateway\"}": {
+                                    "aggregations": [
+                                        "max"
+                                    ],
+                                    "operation": "aggregate"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "type": "barchart"
+            },
+            {
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "cdqjr2nsg7gn4c"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "palette-classic"
+                        },
+                        "custom": {
+                            "axisBorderShow": false,
+                            "axisCenteredZero": false,
+                            "axisColorMode": "text",
+                            "axisLabel": "",
+                            "axisPlacement": "auto",
+                            "fillOpacity": 80,
+                            "gradientMode": "none",
+                            "hideFrom": {
+                                "legend": false,
+                                "tooltip": false,
+                                "viz": false
+                            },
+                            "lineWidth": 1,
+                            "scaleDistribution": {
+                                "type": "linear"
+                            },
+                            "thresholdsStyle": {
+                                "mode": "off"
+                            }
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        },
+                        "unit": "litre"
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 8,
+                    "w": 12,
+                    "x": 12,
+                    "y": 8
+                },
+                "id": 1,
+                "options": {
+                    "barRadius": 0,
+                    "barWidth": 0.97,
+                    "fullHighlight": false,
+                    "groupWidth": 0.7,
+                    "legend": {
+                        "calcs": [],
+                        "displayMode": "list",
+                        "placement": "bottom",
+                        "showLegend": true
+                    },
+                    "orientation": "auto",
+                    "showValue": "auto",
+                    "stacking": "none",
+                    "tooltip": {
+                        "mode": "single",
+                        "sort": "none"
+                    },
+                    "xTickLabelRotation": 0,
+                    "xTickLabelSpacing": 0
+                },
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "cdqjr2nsg7gn4c"
+                        },
+                        "disableTextWrap": false,
+                        "editorMode": "builder",
+                        "expr": "Stack_H2_NL_{job=\"pushgateway\"}",
+                        "fullMetaSearch": false,
+                        "includeNullMetadata": true,
+                        "instant": false,
+                        "legendFormat": "__auto",
+                        "range": true,
+                        "refId": "A",
+                        "useBackend": false
+                    }
+                ],
+                "title": "Stack Total H2 Production",
+                "transformations": [
+                    {
+                        "id": "formatTime",
+                        "options": {
+                            "outputFormat": "YYYY-MM-DD",
+                            "timeField": "Time",
+                            "timezone": "browser",
+                            "useTimezone": true
+                        }
+                    },
+                    {
+                        "id": "groupBy",
+                        "options": {
+                            "fields": {
+                                "Time": {
+                                    "aggregations": [],
+                                    "operation": "groupby"
+                                },
+                                "{__name__=\"Stack_H2_NL_\", exported_job=\"electrolyzer\", instance=\"141.72.13.23:9091\", job=\"pushgateway\"}": {
+                                    "aggregations": [
+                                        "max"
+                                    ],
+                                    "operation": "aggregate"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "type": "barchart"
+            },
+            {
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "cdqjr2nsg7gn4c"
+                },
+                "description": "NL/hour, NAN when not producing H2",
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "palette-classic"
+                        },
+                        "custom": {
+                            "axisBorderShow": false,
+                            "axisCenteredZero": false,
+                            "axisColorMode": "text",
+                            "axisLabel": "",
+                            "axisPlacement": "auto",
+                            "barAlignment": 0,
+                            "drawStyle": "line",
+                            "fillOpacity": 0,
+                            "gradientMode": "none",
+                            "hideFrom": {
+                                "legend": false,
+                                "tooltip": false,
+                                "viz": false
+                            },
+                            "insertNulls": false,
+                            "lineInterpolation": "linear",
+                            "lineWidth": 1,
+                            "pointSize": 5,
+                            "scaleDistribution": {
+                                "type": "linear"
+                            },
+                            "showPoints": "auto",
+                            "spanNulls": false,
+                            "stacking": {
+                                "group": "A",
+                                "mode": "none"
+                            },
+                            "thresholdsStyle": {
+                                "mode": "off"
+                            }
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        },
+                        "unit": "litreh"
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 8,
+                    "w": 12,
+                    "x": 0,
+                    "y": 16
+                },
+                "id": 2,
+                "options": {
+                    "legend": {
+                        "calcs": [],
+                        "displayMode": "list",
+                        "placement": "bottom",
+                        "showLegend": false
+                    },
+                    "tooltip": {
+                        "mode": "single",
+                        "sort": "none"
+                    }
+                },
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "cdqjr2nsg7gn4c"
+                        },
+                        "disableTextWrap": false,
+                        "editorMode": "builder",
+                        "expr": "Stack_H2_Flow_NL_hour_{job=\"pushgateway\"}",
+                        "fullMetaSearch": false,
+                        "includeNullMetadata": true,
+                        "instant": false,
+                        "legendFormat": "__auto",
+                        "range": true,
+                        "refId": "A",
+                        "useBackend": false
+                    }
+                ],
+                "title": "H2 Flow Rate",
+                "transformations": [
+                    {
+                        "id": "formatTime",
+                        "options": {
+                            "outputFormat": "YYYY-MM-DD",
+                            "timeField": "Time",
+                            "timezone": "browser",
+                            "useTimezone": true
+                        }
+                    }
+                ],
+                "type": "timeseries"
+            },
+            {
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "cdqjr2nsg7gn4c"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "palette-classic"
+                        },
+                        "custom": {
+                            "axisBorderShow": false,
+                            "axisCenteredZero": false,
+                            "axisColorMode": "text",
+                            "axisLabel": "",
+                            "axisPlacement": "auto",
+                            "fillOpacity": 80,
+                            "gradientMode": "none",
+                            "hideFrom": {
+                                "legend": false,
+                                "tooltip": false,
+                                "viz": false
+                            },
+                            "lineWidth": 1,
+                            "scaleDistribution": {
+                                "type": "linear"
+                            },
+                            "thresholdsStyle": {
+                                "mode": "off"
+                            }
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        },
+                        "unit": "litre"
+                    },
+                    "overrides": [
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "Time"
+                            },
+                            "properties": [
+                                {
+                                    "id": "min"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "gridPos": {
+                    "h": 8,
+                    "w": 12,
+                    "x": 0,
+                    "y": 24
+                },
+                "id": 3,
+                "options": {
+                    "barRadius": 0,
+                    "barWidth": 0.59,
+                    "fullHighlight": false,
+                    "groupWidth": 0.7,
+                    "legend": {
+                        "calcs": [],
+                        "displayMode": "list",
+                        "placement": "bottom",
+                        "showLegend": false
+                    },
+                    "orientation": "auto",
+                    "showValue": "auto",
+                    "stacking": "none",
+                    "tooltip": {
+                        "mode": "single",
+                        "sort": "none"
+                    },
+                    "xField": "Time",
+                    "xTickLabelRotation": 0,
+                    "xTickLabelSpacing": 0
+                },
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "cdqjr2nsg7gn4c"
+                        },
+                        "disableTextWrap": false,
+                        "editorMode": "code",
+                        "expr": "sum_over_time(Consumption_water_in_W[1d])",
+                        "fullMetaSearch": false,
+                        "includeNullMetadata": true,
+                        "instant": false,
+                        "legendFormat": "__auto",
+                        "range": true,
+                        "refId": "A",
+                        "useBackend": false
+                    }
+                ],
+                "title": "Consumption water",
+                "transformations": [
+                    {
+                        "id": "formatTime",
+                        "options": {
+                            "outputFormat": "YYY-MM-DD",
+                            "timeField": "Time",
+                            "timezone": "",
+                            "useTimezone": true
+                        }
+                    },
+                    {
+                        "id": "groupBy",
+                        "options": {
+                            "fields": {
+                                "Time": {
+                                    "aggregations": [
+                                        "mean"
+                                    ],
+                                    "operation": "groupby"
+                                },
+                                "{exported_job=\"electrolyzer-meter\", instance=\"141.72.13.23:9091\", job=\"pushgateway\"}": {
+                                    "aggregations": [
+                                        "max"
+                                    ],
+                                    "operation": "aggregate"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "type": "barchart"
+            }
+        ],
+        "refresh": "",
+        "schemaVersion": 39,
+        "tags": [],
+        "templating": {
+            "list": []
+        },
+        "time": {
+            "from": "now-7d",
+            "to": "now"
+        },
+        "timepicker": {
+            "refresh_intervals": [
+                "1m"
+            ]
+        },
+        "timezone": "browser",
+        "title": "Production",
+        "uid": "fdrjcrk05o0zka",
+        "version": 12,
+        "weekStart": ""
+    }
+}
