@@ -21,6 +21,8 @@ def get_closest_name(name):
     match = difflib.get_close_matches(name, FIELDS_NAMES, 1)
     return match
 
+metric_name = ""
+
 def convert_target(target):
     n_target = {}
     n_target["datasource"] = {
@@ -35,6 +37,9 @@ def convert_target(target):
     if field_name is None:
         print("Field not found")
         exit()
+
+    global metric_name
+    metric_name = field_name[0]
 
     n_target["query"] = f"""
         from(bucket: \"DHBW\")
@@ -67,6 +72,8 @@ def convert_trans_fields(fields):
             rec = get_dict_from_string(f)
             name = get_closest_name(rec["__name__"])[0]
             n_fields[name] = fields[f]
+        if f.startswith("{exported_job"):
+            n_fields[metric_name] = fields[f]
         else:
             n_fields[f] = fields[f]
     return n_fields
