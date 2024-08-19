@@ -1,7 +1,25 @@
 import json
 import sys
 import os
-import yaml
+import difflib
+
+def get_names_from_json():
+    names = []
+
+    with open("config/input_registers.json") as f:
+        conf = json.load(f)
+        names.extend([n["name"] for n in conf["registers"]])
+
+    with open("config/meter_input.json") as f:
+        conf = json.load(f)
+        names.extend([n["name"] for n in conf["registers"]])
+    return names
+
+FIELDS_NAMES = get_names_from_json()
+
+def get_closest_name(name):
+    match = difflib.get_close_matches(name, FIELDS_NAMES, 1)
+    return match
 
 def convert_target(target):
     n_target = {}
@@ -11,11 +29,17 @@ def convert_target(target):
     }
 
     field = target["expr"].split("{")[0]
+    
+    field_name = get_closest_name(field)
+
+    if field_name is None:
+        print("Field not found")
+        exit()
 
     n_target["query"] = f"""
         from(bucket: \"DHBW\")
             |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
-            |> filter(fn: (r) => r[\"_field\"] == \"{field}\")
+            |> filter(fn: (r) => r[\"_field\"] == \"{field_name[0]}\")
             |> aggregateWindow(every: v.windowPeriod, fn: last, createEmpty: false)
             |> yield(name: \"last\")
     """
@@ -41,7 +65,8 @@ def convert_trans_fields(fields):
     for f in fields:
         if f.startswith("{__name__"):
             rec = get_dict_from_string(f)
-            n_fields[rec["__name__"]] = fields[f]
+            name = get_closest_name(rec["__name__"])[0]
+            n_fields[name] = fields[f]
         else:
             n_fields[f] = fields[f]
     return n_fields
