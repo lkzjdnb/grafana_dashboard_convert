@@ -9,6 +9,10 @@ def get_names_from_json():
     with open("config/input_registers.json") as f:
         conf = json.load(f)
         names.extend([n["name"] for n in conf["registers"]])
+        
+    with open("config/holding_registers.json") as f:
+        conf = json.load(f)
+        names.extend([n["name"] for n in conf["registers"]])
 
     with open("config/meter_input.json") as f:
         conf = json.load(f)
@@ -34,8 +38,8 @@ def convert_target(target):
     
     field_name = get_closest_name(field)
 
-    if field_name is None:
-        print("Field not found")
+    if field_name is None or len(field_name) == 0:
+        print("Field not found", field)
         exit()
 
     global metric_name
