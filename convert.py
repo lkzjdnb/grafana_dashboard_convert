@@ -1,7 +1,7 @@
 import json
-import sys
 import os
 import difflib
+import re
 
 def get_names_from_json():
     names = []
@@ -34,9 +34,47 @@ def convert_target(target):
         "uid": "{{ influxdb_datasource_uid }}",
     }
 
-    field = target["expr"].split("{")[0]
+    expr = target["expr"]
+
+    find_expr = ""
+    out_expr = ""
+
+    if expr.startswith("delta"):
+        find_expr = r"^delta\((?P<field>\w*)\{job=\"\w*\"\}\[(?P<dt>[a-z0-9]*)\]\)$"
+        out_expr = """\
+            from(bucket: "DHBW")
+                |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
+                |> filter(fn: (r) => r["_field"] == "{field_name[0]}")
+                |> aggregateWindow(timeSrc: "_stop", every: duration(v: {field[dt]}), fn: last)
+    	        |> difference(nonNegative: true)"""
+
+    elif "{" in expr:
+        find_expr = r"^(?P<field>\w*)\{job=\"(?P<job>\w*)\"\}$"
+        out_expr = """\
+            from(bucket: \"DHBW\")
+                |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
+                |> filter(fn: (r) => r[\"_field\"] == \"{field_name[0]}\")
+                |> aggregateWindow(every: v.windowPeriod, fn: last, createEmpty: false)
+                |> yield(name: \"last\")
+        """
+    else:
+        find_expr = r"^(?P<field>\w*)$"
+        out_expr = """\
+            from(bucket: \"DHBW\")
+                |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
+                |> filter(fn: (r) => r[\"_field\"] == \"{field_name[0]}\")
+                |> aggregateWindow(every: v.windowPeriod, fn: last, createEmpty: false)
+                |> yield(name: \"last\")
+        """
+
+    field = {}
+    for m in re.finditer(find_expr, expr):
+        field |= m.groupdict()
     
-    field_name = get_closest_name(field)
+    if len(field) == 0:
+        raise re.error(f"Could not get field from expr {expr} (regex: {find_expr})")
+    
+    field_name = get_closest_name(field["field"])
 
     if field_name is None or len(field_name) == 0:
         print("Field not found", field)
@@ -45,14 +83,7 @@ def convert_target(target):
     global metric_name
     metric_name = field_name[0]
 
-    n_target["query"] = f"""
-        from(bucket: \"DHBW\")
-            |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
-            |> filter(fn: (r) => r[\"_field\"] == \"{field_name[0]}\")
-            |> aggregateWindow(every: v.windowPeriod, fn: last, createEmpty: false)
-            |> yield(name: \"last\")
-    """
-
+    n_target["query"] = out_expr.format(field_name=field_name, field=field)
     return n_target
 
 def convert_targets(targets):
