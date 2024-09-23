@@ -1,348 +1,348 @@
 {
-    "meta": {
-        "type": "db",
-        "canSave": false,
+  "meta": {
+    "type": "db",
+    "canSave": false,
+    "canEdit": false,
+    "canAdmin": false,
+    "canStar": false,
+    "canDelete": false,
+    "slug": "live-data",
+    "url": "/d/bdwwc819l6j9ca/live-data",
+    "expires": "0001-01-01T00:00:00Z",
+    "created": "2024-09-04T16:08:07Z",
+    "updated": "2024-09-11T14:55:30Z",
+    "updatedBy": "admin",
+    "createdBy": "admin",
+    "version": 4,
+    "hasAcl": false,
+    "isFolder": false,
+    "folderId": 0,
+    "folderUid": "",
+    "folderTitle": "General",
+    "folderUrl": "",
+    "provisioned": false,
+    "provisionedExternalId": "",
+    "annotationsPermissions": {
+      "dashboard": {
+        "canAdd": false,
         "canEdit": false,
-        "canAdmin": false,
-        "canStar": false,
-        "canDelete": false,
-        "slug": "live-data",
-        "url": "/d/bdwwc819l6j9ca/live-data",
-        "expires": "0001-01-01T00:00:00Z",
-        "created": "2024-09-04T16:08:07Z",
-        "updated": "2024-09-11T14:55:30Z",
-        "updatedBy": "admin",
-        "createdBy": "admin",
-        "version": 4,
-        "hasAcl": false,
-        "isFolder": false,
-        "folderId": 0,
-        "folderUid": "",
-        "folderTitle": "General",
-        "folderUrl": "",
-        "provisioned": false,
-        "provisionedExternalId": "",
-        "annotationsPermissions": {
-            "dashboard": {
-                "canAdd": false,
-                "canEdit": false,
-                "canDelete": false
-            },
-            "organization": {
-                "canAdd": false,
-                "canEdit": false,
-                "canDelete": false
-            }
-        }
-    },
-    "dashboard": {
-        "annotations": {
-            "list": [
-                {
-                    "builtIn": 1,
-                    "datasource": {
-                        "type": "grafana",
-                        "uid": "-- Grafana --"
-                    },
-                    "enable": true,
-                    "hide": true,
-                    "iconColor": "rgba(0, 211, 255, 1)",
-                    "name": "Annotations & Alerts",
-                    "type": "dashboard"
-                }
-            ]
-        },
-        "editable": true,
-        "fiscalYearStartMonth": 0,
-        "graphTooltip": 0,
-        "id": 8,
-        "links": [],
-        "panels": [
-            {
-                "datasource": {
-                    "type": "prometheus",
-                    "uid": "ddqjqhv4v9u68e"
-                },
-                "fieldConfig": {
-                    "defaults": {
-                        "color": {
-                            "mode": "thresholds"
-                        },
-                        "mappings": [],
-                        "thresholds": {
-                            "mode": "absolute",
-                            "steps": [
-                                {
-                                    "color": "green",
-                                    "value": null
-                                },
-                                {
-                                    "color": "red",
-                                    "value": 80
-                                }
-                            ]
-                        },
-                        "unit": "%"
-                    },
-                    "overrides": []
-                },
-                "gridPos": {
-                    "h": 8,
-                    "w": 12,
-                    "x": 0,
-                    "y": 0
-                },
-                "id": 1,
-                "options": {
-                    "minVizHeight": 75,
-                    "minVizWidth": 75,
-                    "orientation": "auto",
-                    "reduceOptions": {
-                        "calcs": [
-                            "lastNotNull"
-                        ],
-                        "fields": "",
-                        "values": false
-                    },
-                    "showThresholdLabels": false,
-                    "showThresholdMarkers": true,
-                    "sizing": "auto"
-                },
-                "pluginVersion": "11.1.0",
-                "targets": [
-                    {
-                        "datasource": {
-                            "type": "prometheus",
-                            "uid": "ddqjqhv4v9u68e"
-                        },
-                        "disableTextWrap": false,
-                        "editorMode": "builder",
-                        "expr": "Stack_ProductionRate_percent{job=\"pushgateway\"}",
-                        "fullMetaSearch": false,
-                        "includeNullMetadata": true,
-                        "instant": false,
-                        "legendFormat": "__auto",
-                        "range": true,
-                        "refId": "A",
-                        "useBackend": false
-                    }
-                ],
-                "title": "Production Rate ",
-                "type": "gauge"
-            },
-            {
-                "datasource": {
-                    "type": "prometheus",
-                    "uid": "ddqjqhv4v9u68e"
-                },
-                "fieldConfig": {
-                    "defaults": {
-                        "color": {
-                            "mode": "palette-classic"
-                        },
-                        "custom": {
-                            "axisBorderShow": false,
-                            "axisCenteredZero": false,
-                            "axisColorMode": "text",
-                            "axisLabel": "",
-                            "axisPlacement": "auto",
-                            "barAlignment": 0,
-                            "drawStyle": "line",
-                            "fillOpacity": 0,
-                            "gradientMode": "none",
-                            "hideFrom": {
-                                "legend": false,
-                                "tooltip": false,
-                                "viz": false
-                            },
-                            "insertNulls": false,
-                            "lineInterpolation": "linear",
-                            "lineWidth": 1,
-                            "pointSize": 5,
-                            "scaleDistribution": {
-                                "type": "linear"
-                            },
-                            "showPoints": "auto",
-                            "spanNulls": false,
-                            "stacking": {
-                                "group": "A",
-                                "mode": "none"
-                            },
-                            "thresholdsStyle": {
-                                "mode": "off"
-                            }
-                        },
-                        "mappings": [],
-                        "thresholds": {
-                            "mode": "absolute",
-                            "steps": [
-                                {
-                                    "color": "green",
-                                    "value": null
-                                },
-                                {
-                                    "color": "red",
-                                    "value": 80
-                                }
-                            ]
-                        }
-                    },
-                    "overrides": []
-                },
-                "gridPos": {
-                    "h": 8,
-                    "w": 12,
-                    "x": 12,
-                    "y": 0
-                },
-                "id": 2,
-                "options": {
-                    "legend": {
-                        "calcs": [],
-                        "displayMode": "list",
-                        "placement": "bottom",
-                        "showLegend": false
-                    },
-                    "tooltip": {
-                        "mode": "single",
-                        "sort": "none"
-                    }
-                },
-                "targets": [
-                    {
-                        "datasource": {
-                            "type": "prometheus",
-                            "uid": "ddqjqhv4v9u68e"
-                        },
-                        "disableTextWrap": false,
-                        "editorMode": "builder",
-                        "expr": "Consumption_total_in_W",
-                        "fullMetaSearch": false,
-                        "includeNullMetadata": true,
-                        "instant": false,
-                        "legendFormat": "__auto",
-                        "range": true,
-                        "refId": "A",
-                        "useBackend": false
-                    }
-                ],
-                "title": "Panel Title",
-                "type": "timeseries"
-            },
-            {
-                "datasource": {
-                    "type": "prometheus",
-                    "uid": "ddqjqhv4v9u68e"
-                },
-                "fieldConfig": {
-                    "defaults": {
-                        "color": {
-                            "mode": "palette-classic"
-                        },
-                        "custom": {
-                            "axisBorderShow": false,
-                            "axisCenteredZero": false,
-                            "axisColorMode": "text",
-                            "axisLabel": "",
-                            "axisPlacement": "auto",
-                            "barAlignment": 0,
-                            "drawStyle": "line",
-                            "fillOpacity": 0,
-                            "gradientMode": "none",
-                            "hideFrom": {
-                                "legend": false,
-                                "tooltip": false,
-                                "viz": false
-                            },
-                            "insertNulls": false,
-                            "lineInterpolation": "linear",
-                            "lineWidth": 1,
-                            "pointSize": 5,
-                            "scaleDistribution": {
-                                "type": "linear"
-                            },
-                            "showPoints": "auto",
-                            "spanNulls": false,
-                            "stacking": {
-                                "group": "A",
-                                "mode": "none"
-                            },
-                            "thresholdsStyle": {
-                                "mode": "off"
-                            }
-                        },
-                        "mappings": [],
-                        "thresholds": {
-                            "mode": "absolute",
-                            "steps": [
-                                {
-                                    "color": "green",
-                                    "value": null
-                                },
-                                {
-                                    "color": "red",
-                                    "value": 80
-                                }
-                            ]
-                        }
-                    },
-                    "overrides": []
-                },
-                "gridPos": {
-                    "h": 8,
-                    "w": 24,
-                    "x": 0,
-                    "y": 8
-                },
-                "id": 3,
-                "options": {
-                    "legend": {
-                        "calcs": [],
-                        "displayMode": "list",
-                        "placement": "bottom",
-                        "showLegend": false
-                    },
-                    "tooltip": {
-                        "mode": "single",
-                        "sort": "none"
-                    }
-                },
-                "targets": [
-                    {
-                        "datasource": {
-                            "type": "prometheus",
-                            "uid": "ddqjqhv4v9u68e"
-                        },
-                        "disableTextWrap": false,
-                        "editorMode": "builder",
-                        "expr": "Stack_H2_Flow_NL_hour_",
-                        "fullMetaSearch": false,
-                        "includeNullMetadata": true,
-                        "instant": false,
-                        "legendFormat": "__auto",
-                        "range": true,
-                        "refId": "A",
-                        "useBackend": false
-                    }
-                ],
-                "title": "Live Production",
-                "type": "timeseries"
-            }
-        ],
-        "schemaVersion": 39,
-        "tags": [],
-        "templating": {
-            "list": []
-        },
-        "time": {
-            "from": "now-24h",
-            "to": "now"
-        },
-        "timepicker": {},
-        "timezone": "browser",
-        "title": "Live Data",
-        "uid": "bdwwc819l6j9ca",
-        "version": 4,
-        "weekStart": ""
+        "canDelete": false
+      },
+      "organization": {
+        "canAdd": false,
+        "canEdit": false,
+        "canDelete": false
+      }
     }
+  },
+  "dashboard": {
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": {
+            "type": "grafana",
+            "uid": "-- Grafana --"
+          },
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "type": "dashboard"
+        }
+      ]
+    },
+    "editable": true,
+    "fiscalYearStartMonth": 0,
+    "graphTooltip": 0,
+    "id": 8,
+    "links": [],
+    "panels": [
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "ddqjqhv4v9u68e"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "%"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 0
+        },
+        "id": 1,
+        "options": {
+          "minVizHeight": 75,
+          "minVizWidth": 75,
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showThresholdLabels": false,
+          "showThresholdMarkers": true,
+          "sizing": "auto"
+        },
+        "pluginVersion": "11.1.0",
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "ddqjqhv4v9u68e"
+            },
+            "disableTextWrap": false,
+            "editorMode": "builder",
+            "expr": "ProductionRate___{job=\"pushgateway\"}",
+            "fullMetaSearch": false,
+            "includeNullMetadata": true,
+            "instant": false,
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "A",
+            "useBackend": false
+          }
+        ],
+        "title": "Production Rate ",
+        "type": "gauge"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "ddqjqhv4v9u68e"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisBorderShow": false,
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "insertNulls": false,
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 0
+        },
+        "id": 2,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom",
+            "showLegend": false
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "ddqjqhv4v9u68e"
+            },
+            "disableTextWrap": false,
+            "editorMode": "builder",
+            "expr": "Consumption_total_in_W",
+            "fullMetaSearch": false,
+            "includeNullMetadata": true,
+            "instant": false,
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "A",
+            "useBackend": false
+          }
+        ],
+        "title": "Panel Title",
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "ddqjqhv4v9u68e"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisBorderShow": false,
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "insertNulls": false,
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 24,
+          "x": 0,
+          "y": 8
+        },
+        "id": 3,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom",
+            "showLegend": false
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "ddqjqhv4v9u68e"
+            },
+            "disableTextWrap": false,
+            "editorMode": "builder",
+            "expr": "Stack_H2_Flow_NL_hour_",
+            "fullMetaSearch": false,
+            "includeNullMetadata": true,
+            "instant": false,
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "A",
+            "useBackend": false
+          }
+        ],
+        "title": "Live Production",
+        "type": "timeseries"
+      }
+    ],
+    "schemaVersion": 39,
+    "tags": [],
+    "templating": {
+      "list": []
+    },
+    "time": {
+      "from": "now-24h",
+      "to": "now"
+    },
+    "timepicker": {},
+    "timezone": "browser",
+    "title": "Live Data",
+    "uid": "bdwwc819l6j9ca",
+    "version": 4,
+    "weekStart": ""
+  }
 }
