@@ -226,7 +226,7 @@
             "useBackend": false
           }
         ],
-        "title": "Panel Title",
+        "title": "Live Consumption",
         "type": "timeseries"
       },
       {
